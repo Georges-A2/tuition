@@ -3,318 +3,527 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>George Adderley Maths Tuition | Online GCSE, IGCSE & A-Level Maths</title>
-  <meta name="description" content="Online GCSE, IGCSE and A-Level Maths tuition with George Adderley. Individual and small-group lessons focused on confidence, exam technique and clear understanding.">
-
+  <title>Bridge Up Tuition | Online GCSE, IGCSE &amp; A-Level Maths</title>
+  <meta name="description" content="Bridge Up connects university students with students sitting the same exams. Online GCSE, IGCSE and A-Level maths tuition, one to one or in small groups. Enquire in a minute.">
+  <meta name="theme-color" content="#fbf7ec">
+  <meta property="og:title" content="Bridge Up Tuition | Online GCSE, IGCSE &amp; A-Level Maths">
+  <meta property="og:description" content="Connecting university students with students sitting the same exams.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 40%22 role=%22img%22 aria-label=%22Bridge Up logo%22%3E%0A  %3Cg fill=%22none%22 stroke=%22%23E8AE45%22 stroke-linecap=%22round%22%3E%0A    %3Cpath d=%22M7 28 Q32 -6 57 28%22 stroke-width=%223.2%22/%3E%0A    %3Cpath d=%22M15 28 V19.6 M22 28 V13.6 M29 28 V10.4 M35 28 V10.4 M42 28 V13.6 M49 28 V19.6%22 stroke-width=%221.5%22/%3E%0A  %3C/g%3E%0A  %3Crect x=%222%22 y=%2227%22 width=%2260%22 height=%223.4%22 rx=%221.7%22 fill=%22%231D2421%22/%3E%0A  %3Crect x=%222%22 y=%2230%22 width=%229%22 height=%228%22 rx=%221.4%22 fill=%22%231D2421%22/%3E%0A  %3Crect x=%2253%22 y=%2230%22 width=%229%22 height=%228%22 rx=%221.4%22 fill=%22%231D2421%22/%3E%0A%3C/svg%3E">
   <style>
-    :root {
-      --background: #f8f5ef;
-      --surface: #ffffff;
-      --surface-soft: #efe7da;
-      --text: #1f2933;
-      --muted: #5f6c72;
-      --primary: #243b35;
-      --primary-light: #4f6f52;
-      --accent: #c9a44c;
-      --border: #ded6c8;
-      --shadow: 0 18px 45px rgba(31, 41, 51, 0.12);
-      --radius: 18px;
-      --max-width: 1120px;
-    }
+/* Bridge Up Tuition – main stylesheet
+   1 Tokens · 2 Base · 3 Header · 4 Hero · 5 Form · 6 Sections · 7 Footer · 8 Motion and responsive */
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+/* 1. Tokens */
+:root {
+  --ink: #1d2421;
+  --ink-soft: #2a332f;
+  --muted: #5b6761;
+  --cream: #fbf7ec;
+  --sand: #f3eee0;
+  --white: #ffffff;
+  --line: #e2dccb;
+  --gold: #e8ae45;
+  --gold-deep: #a8700f;
+  --radius: 18px;
+  --shadow: 0 18px 44px rgba(29, 36, 33, 0.10);
+  --max: 1080px;
+  --header-h: 68px;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-    }
+/* 2. Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+.container { width: min(92%, var(--max)); margin: 0 auto; }
+.skip-link { position: absolute; left: -999px; top: 8px; background: var(--gold); color: var(--ink); padding: 10px 16px; border-radius: 8px; font-weight: 800; z-index: 100; }
+.skip-link:focus { left: 8px; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
-    a { color: inherit; }
-    .container { width: min(92%, var(--max-width)); margin: 0 auto; }
+.btn { display: inline-flex; align-items: center; justify-content: center; border: 0; cursor: pointer; text-decoration: none; font: inherit; font-weight: 800; padding: 14px 26px; border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--ink); box-shadow: 0 10px 24px rgba(232, 174, 69, .32); }
+.btn-gold:hover { background: #f0bb5c; }
+.btn-ink { background: var(--ink); color: var(--cream); }
+.btn-ink:hover { background: var(--ink-soft); }
+.btn-small { padding: 10px 20px; font-size: .92rem; }
+.btn[disabled] { opacity: .65; cursor: progress; transform: none; }
 
-    header {
-      padding: 22px 0;
-      background: rgba(248, 245, 239, 0.94);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
+/* 3. Header */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(251, 247, 236, .94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand img { width: 46px; height: auto; }
+.brand-name { font-weight: 900; letter-spacing: .04em; font-size: 1.08rem; text-transform: uppercase; }
+.brand-name span { color: var(--gold-deep); }
+.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; color: var(--muted); font-size: .95rem; }
+.nav-links a { text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
 
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .logo { font-weight: 800; letter-spacing: -0.03em; color: var(--primary); font-size: 1.05rem; }
-    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; font-size: 0.95rem; color: var(--muted); }
-    .nav-links a { text-decoration: none; transition: color 0.2s ease; }
-    .nav-links a:hover, .nav-links a:focus { color: var(--primary); }
+/* 4. Hero */
+.hero { position: relative; overflow: hidden; padding: 72px 0 84px; }
+.hero-art { position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; height: auto; opacity: .22; pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: start; }
+.eyebrow { display: inline-block; color: var(--gold-deep); font-weight: 800; letter-spacing: .18em; font-size: .74rem; text-transform: uppercase; margin-bottom: 16px; }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 3.7rem); line-height: 1.06; margin-bottom: 22px; }
+.mark { background: linear-gradient(transparent 62%, rgba(232, 174, 69, .55) 62%); padding: 0 .08em; }
+.hero-lead { color: var(--muted); font-size: 1.1rem; max-width: 540px; margin-bottom: 24px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0 0 24px; }
+.chips li { border: 1px solid var(--line); background: var(--white); border-radius: 999px; padding: 7px 14px; font-size: .88rem; font-weight: 700; }
+.hero-secondary { color: var(--muted); font-size: .95rem; }
+.hero-secondary a { font-weight: 800; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 
-    .hero { padding: 90px 0 70px; }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 42px; }
+/* 5. Form */
+.form-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); scroll-margin-top: calc(var(--header-h) + 16px); }
+.form-card h2 { font-size: 1.55rem; margin-bottom: 6px; }
+.form-sub { color: var(--muted); margin-bottom: 20px; font-size: .98rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field { display: grid; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-weight: 800; font-size: .9rem; }
+.field label small { font-weight: 600; color: var(--muted); }
+.field input, .field select, .field textarea { width: 100%; font: inherit; color: var(--ink); background: var(--cream); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; transition: border-color .2s, box-shadow .2s, background .2s; }
+.field textarea { min-height: 92px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; background: var(--white); border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(232, 174, 69, .3); }
+.more { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+.more summary { cursor: pointer; font-weight: 800; color: var(--muted); font-size: .92rem; }
+.more .form-grid { margin-top: 12px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-submit { width: 100%; margin-top: 16px; font-size: 1.05rem; padding: 16px 24px; }
+.form-note { font-size: .84rem; color: var(--muted); margin-top: 12px; }
+.form-note a { font-weight: 700; }
+.form-status { min-height: 1.4em; margin-top: 10px; font-weight: 700; font-size: .95rem; }
+.form-status.error { color: #a02a2a; }
+.success { text-align: center; padding: 14px 4px; }
+.tick-big { width: 62px; height: 62px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; margin: 0 auto 16px; font-size: 1.9rem; font-weight: 900; }
+.success h2 { margin-bottom: 8px; }
 
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      color: var(--primary);
-      margin-bottom: 22px;
-    }
+/* 6. Sections */
+section { padding: 84px 0; }
+.alt { background: var(--sand); }
+.sec-head { max-width: 700px; margin-bottom: 34px; }
+.sec-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 12px; }
+.sec-head p { color: var(--muted); font-size: 1.05rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.card p { color: var(--muted); }
+.step-num { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: var(--gold); display: grid; place-items: center; font-weight: 900; margin-bottom: 14px; }
+figure { margin: 0; }
+.bridge-fig img { width: 100%; max-width: 820px; margin: 0 auto 34px; height: auto; }
+.mission { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: start; }
+.mission .big { font-size: clamp(1.25rem, 2.2vw, 1.55rem); line-height: 1.4; font-weight: 700; margin-bottom: 18px; }
+.mission p { color: var(--muted); font-size: 1.05rem; margin-bottom: 14px; }
+.traits { display: grid; gap: 14px; }
+.trait { background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; padding: 18px 20px; }
+.trait strong { display: block; margin-bottom: 4px; }
+.trait p { margin: 0; color: var(--muted); font-size: .98rem; }
+.stat { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 10px; }
+.stat span { background: linear-gradient(transparent 62%, rgba(232, 174, 69, .55) 62%); }
+.source { display: inline-block; margin-top: 14px; font-size: .86rem; font-weight: 800; color: var(--gold-deep); }
+.fine { color: var(--muted); font-size: .88rem; margin-top: 22px; max-width: 720px; }
+.quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+blockquote { margin: 0; background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: var(--radius); padding: 28px; }
+blockquote p { margin-bottom: 16px; font-size: 1.04rem; }
+blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); font-size: .94rem; }
+.about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: start; }
+.about-grid p { color: var(--muted); font-size: 1.05rem; margin-bottom: 14px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.facts li { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+.facts li span { color: var(--gold-deep); font-size: 1.15rem; }
+.cta-band { text-align: center; background: var(--ink); color: var(--cream); padding: 72px 0; }
+.cta-band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 12px; }
+.cta-band p { color: #cfd5d0; margin-bottom: 24px; }
 
-    .hero p { font-size: 1.16rem; color: var(--muted); max-width: 680px; margin-bottom: 28px; }
-    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 26px; }
+/* 7. Footer */
+.site-footer { background: #151a18; color: #cfd5d0; padding: 40px 0 96px; font-size: .94rem; }
+.footer-top { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 26px; }
+.privacy { border-top: 1px solid rgba(255, 255, 255, .12); padding-top: 22px; max-width: 760px; }
+.privacy h2 { font-size: 1.05rem; color: var(--cream); margin-bottom: 8px; letter-spacing: 0; }
+.privacy p { margin-bottom: 8px; }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
+/* 8. Sticky button, motion, responsive */
+.sticky-cta { position: fixed; left: 50%; bottom: 16px; transform: translate(-50%, 140%); z-index: 60; transition: transform .35s ease; }
+.sticky-cta.show { transform: translate(-50%, 0); }
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 900px) {
+  .hero { padding: 36px 0 52px; }
+  .hero-grid, .mission, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .grid-3, .quotes { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  section { padding: 58px 0; }
+  .form-card { padding: 22px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .brand-name { font-size: 1rem; }
+  .hero .chips, .hero-secondary { display: none; }
+  .hero-lead { font-size: 1rem; margin-bottom: 0; }
+  .hero h1 { margin-bottom: 14px; }
+}
 
-    .button-primary { background: var(--primary); color: #ffffff; box-shadow: 0 14px 28px rgba(36, 59, 53, 0.24); }
-    .button-primary:hover { background: #1b2f2a; }
-    .button-secondary { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
-    .button:hover { transform: translateY(-2px); }
-
-    .quick-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
-    .quick-point { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px; font-weight: 700; color: var(--primary); }
-
-    .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); }
-    .hero-card h2 { color: var(--primary); font-size: 1.45rem; margin-bottom: 16px; }
-    .hero-card p { margin-bottom: 16px; }
-    .hero-card ul { padding-left: 20px; color: var(--muted); }
-    .hero-card li + li { margin-top: 8px; }
-
-    section { padding: 72px 0; }
-    .section-heading { max-width: 760px; margin-bottom: 34px; }
-    .section-heading h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); letter-spacing: -0.05em; line-height: 1.08; margin-bottom: 14px; }
-    .section-heading p { color: var(--muted); font-size: 1.05rem; }
-
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: 0 10px 26px rgba(31, 41, 51, 0.06); }
-    .card h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.18rem; }
-    .card p { color: var(--muted); }
-
-    .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 26px; align-items: start; }
-    .highlight-box { background: var(--primary); color: #ffffff; border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); }
-    .highlight-box h2 { font-size: 2rem; line-height: 1.12; margin-bottom: 14px; letter-spacing: -0.04em; }
-    .highlight-box p { color: rgba(255, 255, 255, 0.84); }
-
-    .list { display: grid; gap: 14px; }
-    .list-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
-    .tick { width: 26px; height: 26px; border-radius: 50%; background: var(--primary-light); color: white; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; margin-top: 2px; }
-
-    .group-section { background: var(--primary); color: white; }
-    .group-section .section-heading h2 { color: white; }
-    .group-section .section-heading p { color: rgba(255,255,255,0.82); }
-    .group-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .group-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); padding: 24px; }
-    .group-card h3 { margin-bottom: 10px; }
-    .group-card p { color: rgba(255,255,255,0.82); }
-
-    .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    blockquote { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: 0 10px 26px rgba(31, 41, 51, 0.06); }
-    blockquote p { margin-bottom: 16px; }
-    blockquote footer { color: var(--muted); font-weight: 700; font-size: 0.95rem; }
-
-    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-    .contact-summary { display: grid; gap: 12px; margin-top: 22px; }
-    .contact-line { background: var(--surface-soft); padding: 15px; border-radius: 14px; font-weight: 700; color: var(--primary); }
-    .small-note { color: var(--muted); font-size: 0.95rem; margin-top: 12px; }
-
-    .enquiry-form { background: var(--surface-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: grid; gap: 16px; }
-    .form-group { display: grid; gap: 7px; }
-    .form-group label { font-weight: 800; color: var(--primary); font-size: 0.95rem; }
-    .form-group label span { font-weight: 600; color: var(--muted); font-size: 0.85rem; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; font: inherit; color: var(--text); background: #ffffff; outline: none; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(79, 111, 82, 0.16); }
-    .form-group textarea { resize: vertical; min-height: 130px; }
-    .form-button { border: none; cursor: pointer; font-size: 1rem; margin-top: 4px; }
-    .form-note { color: var(--muted); font-size: 0.9rem; }
-
-    .footer { padding: 28px 0; color: var(--muted); border-top: 1px solid var(--border); font-size: 0.95rem; }
-    .footer-content { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-
-    @media (max-width: 880px) {
-      .hero-grid, .split, .contact-box { grid-template-columns: 1fr; }
-      .cards, .group-cards, .testimonial-grid, .quick-points { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero { padding-top: 58px; }
-      section { padding: 56px 0; }
-      .contact-box { padding: 22px; }
-      .hero-card { padding: 24px; }
-    }
-  </style>
+</style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <header>
+  <a class="skip-link" href="#enquire">Skip to the enquiry form</a>
+
+  <header class="site-header">
     <div class="container nav">
-      <div class="logo">George Adderley Maths Tuition</div>
+      <a class="brand" href="#top" aria-label="Bridge Up Tuition, back to top">
+        <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 40%22 role=%22img%22 aria-label=%22Bridge Up logo%22%3E%0A  %3Cg fill=%22none%22 stroke=%22%23E8AE45%22 stroke-linecap=%22round%22%3E%0A    %3Cpath d=%22M7 28 Q32 -6 57 28%22 stroke-width=%223.2%22/%3E%0A    %3Cpath d=%22M15 28 V19.6 M22 28 V13.6 M29 28 V10.4 M35 28 V10.4 M42 28 V13.6 M49 28 V19.6%22 stroke-width=%221.5%22/%3E%0A  %3C/g%3E%0A  %3Crect x=%222%22 y=%2227%22 width=%2260%22 height=%223.4%22 rx=%221.7%22 fill=%22%231D2421%22/%3E%0A  %3Crect x=%222%22 y=%2230%22 width=%229%22 height=%228%22 rx=%221.4%22 fill=%22%231D2421%22/%3E%0A  %3Crect x=%2253%22 y=%2230%22 width=%229%22 height=%228%22 rx=%221.4%22 fill=%22%231D2421%22/%3E%0A%3C/svg%3E" alt="" width="46" height="29">
+        <span class="brand-name">Bridge <span>Up</span></span>
+      </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#tuition">Tuition</a></li>
-        <li><a href="#small-groups">Small Groups</a></li>
+        <li><a href="#mission">Our mission</a></li>
+        <li><a href="#evidence">Why tutoring</a></li>
+        <li><a href="#maths">Maths</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Enquire</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
+      <a class="btn btn-gold btn-small" href="#enquire">Enquire</a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="top">
+    <!-- HERO + ENQUIRY FORM: the QR code lands here -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-art" src="data:image/svg+xml," alt="">
       <div class="container hero-grid">
-        <div>
-          <h1>Online maths tuition that builds confidence and exam performance.</h1>
-          <p>GCSE, IGCSE and A-Level Mathematics support with George Adderley, a Finance and Economics student at the University of Nottingham. Lessons are clear, structured and focused on helping students feel more confident in their maths.</p>
-          <div class="cta-row">
-            <a class="button button-primary" href="#contact">Enquire About Tuition</a>
-            <a class="button button-secondary" href="#small-groups">Explore Small-Group Lessons</a>
-          </div>
-          <div class="quick-points">
-            <div class="quick-point">GCSE &amp; IGCSE</div>
-            <div class="quick-point">A-Level Maths</div>
-            <div class="quick-point">Online via Google Meet</div>
-          </div>
-        </div>
-
-        <aside class="hero-card">
-          <h2>Tuition Options</h2>
-          <p>Online lessons are designed around students’ current confidence, learning needs and exam goals.</p>
-          <ul>
-            <li>Individual tuition</li>
-            <li>Small-group tuition</li>
-            <li>Exam preparation and technique</li>
+        <div class="reveal">
+          <span class="eyebrow">Online maths tuition</span>
+          <h1 id="hero-title">Connecting <span class="mark">university students</span> with students sitting the same exams.</h1>
+          <p class="hero-lead">GCSE, IGCSE and A-Level maths, taught online by university students who sat these exams recently and know what they ask for.</p>
+          <ul class="chips">
+            <li>GCSE &middot; IGCSE &middot; A-Level</li>
+            <li>Basic DBS checked</li>
+            <li>5.0 on Google</li>
+            <li>Online via Google Meet</li>
           </ul>
-        </aside>
-      </div>
-    </section>
+          <p class="hero-secondary">Prefer to read first? <a href="#mission">Read about our mission</a>.</p>
+        </div>
 
-    <section id="about">
-      <div class="container split">
-        <div class="highlight-box">
-          <h2>A recent understanding of how maths exams work.</h2>
-          <p>My approach is based on clear explanations, strong written methods, exam technique and helping students take more responsibility for their own progress.</p>
-        </div>
-        <div>
-          <div class="section-heading">
-            <h2>About George</h2>
-            <p>I provide online Mathematics tuition for GCSE, IGCSE and A-Level students. As a Finance and Economics student at the University of Nottingham, I understand how important it is for students to build both technical skill and confidence before exams.</p>
-          </div>
-          <div class="list">
-            <div class="list-item"><span class="tick">✓</span><div><strong>Clear, patient explanations</strong><p>Lessons are taught at the student’s pace, with difficult topics broken down and explained clearly.</p></div></div>
-            <div class="list-item"><span class="tick">✓</span><div><strong>Exam-focused preparation</strong><p>Students are supported with exam technique, written working and problem-solving habits.</p></div></div>
-            <div class="list-item"><span class="tick">✓</span><div><strong>Confidence and responsibility</strong><p>The aim is not just better marks, but a more independent and confident student.</p></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="form-card" id="enquire">
+          <div id="form-wrap">
+            <h2>Enquire about maths tuition</h2>
+            <p class="form-sub">It takes about a minute. We reply by email.</p>
 
-    <section id="tuition">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Tuition offered</h2>
-          <p>Support is focused on GCSE, IGCSE and A-Level Mathematics, with lessons delivered virtually through Google Meet.</p>
-        </div>
-        <div class="cards">
-          <div class="card"><h3>GCSE Maths</h3><p>Support with core topics, past-paper practice, revision structure and confidence before assessments.</p></div>
-          <div class="card"><h3>IGCSE Maths</h3><p>Clear topic support and exam preparation for students following the IGCSE Mathematics pathway.</p></div>
-          <div class="card"><h3>A-Level Maths</h3><p>Help with understanding methods, improving accuracy and approaching exam questions more effectively.</p></div>
-        </div>
-      </div>
-    </section>
+            <form id="enquiry-form" action="https://formspree.io/f/meajowbl" method="POST" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="parent-name">Your name</label>
+                  <input type="text" id="parent-name" name="Parent name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
+                </div>
+                <div class="field">
+                  <label for="student-level">Student level</label>
+                  <select id="student-level" name="Student level" required>
+                    <option value="">Please select</option>
+                    <option>GCSE Maths</option>
+                    <option>IGCSE Maths</option>
+                    <option>A-Level Maths</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="year-group">Year group</label>
+                  <input type="text" id="year-group" name="Student year group" placeholder="e.g. Year 11" required>
+                </div>
+                <div class="field full">
+                  <label for="tuition-format">Preferred format</label>
+                  <select id="tuition-format" name="Preferred tuition format" required>
+                    <option value="">Please select</option>
+                    <option>Individual tuition</option>
+                    <option>Small-group tuition</option>
+                    <option>Open to either</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="message">What would you like help with? <small>(optional)</small></label>
+                  <textarea id="message" name="message" rows="3" placeholder="Topics, confidence level or exam goals"></textarea>
+                </div>
+                <details class="more">
+                  <summary>Add more details (optional)</summary>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="phone">Phone number</label>
+                      <input type="tel" id="phone" name="Phone number" autocomplete="tel" inputmode="tel">
+                    </div>
+                    <div class="field">
+                      <label for="exam-board">Exam board</label>
+                      <input type="text" id="exam-board" name="Exam board" placeholder="e.g. Edexcel, AQA">
+                    </div>
+                    <div class="field full">
+                      <label for="preferred-times">Preferred lesson times</label>
+                      <input type="text" id="preferred-times" name="Preferred lesson times" placeholder="e.g. weekday evenings">
+                    </div>
+                  </div>
+                </details>
+              </div>
 
-    <section id="small-groups" class="group-section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Small-group maths lessons</h2>
-          <p>I am developing small online classes for students working at a similar level. These sessions are intended to make regular, high-quality tuition more accessible while preserving personal support and active participation.</p>
-        </div>
-        <div class="group-cards">
-          <div class="group-card"><h3>Carefully matched groups</h3><p>Students will be grouped by course, stage and learning needs so each lesson remains relevant and appropriately paced.</p></div>
-          <div class="group-card"><h3>Interactive learning</h3><p>Students can compare methods, discuss questions and learn from common mistakes in a focused environment.</p></div>
-          <div class="group-card"><h3>More accessible tuition</h3><p>Sharing a lesson with a small number of suitable students can reduce the cost per family without turning the session into a large classroom.</p></div>
-        </div>
-      </div>
-    </section>
+              <!-- spam trap (hidden from people) and hidden tracking fields -->
+              <div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+              <input type="hidden" name="_subject" value="New Bridge Up Maths Enquiry">
+              <input type="hidden" name="Source" id="source" value="website">
 
-    <section id="online-lessons">
-      <div class="container split">
-        <div class="section-heading">
-          <h2>Why online tuition works</h2>
-          <p>Online tuition makes lessons easier to arrange while still keeping students actively engaged. Students are encouraged to use handwritten working throughout lessons, helping them build strong habits for exams.</p>
-        </div>
-        <div class="list">
-          <div class="list-item"><span class="tick">✓</span><div><strong>Efficient for families</strong><p>No travel time, easier scheduling and more flexibility during busy school weeks.</p></div></div>
-          <div class="list-item"><span class="tick">✓</span><div><strong>Focused on written maths</strong><p>Students continue to practise proper handwritten working, which is essential for exams.</p></div></div>
-          <div class="list-item"><span class="tick">✓</span><div><strong>Easy communication</strong><p>Parents can stay informed about progress, focus areas and suggested revision priorities.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reviews">
-      <div class="container">
-        <div class="section-heading"><h2>Parent feedback</h2><p>Current feedback highlights flexibility, communication, confidence-building and effective exam support.</p></div>
-        <div class="testimonial-grid">
-          <blockquote><p>“George has been tutoring our son for his GCSE maths and we couldn’t be happier. He’s been incredibly flexible with scheduling, communicates clearly and consistently, and his teaching methods are genuinely effective. Highly recommend.”</p><footer>Parent of GCSE student</footer></blockquote>
-          <blockquote><p>“George is a great Maths tutor. He helped my son secure an 8 in Maths GCSE and is now tutoring him for his A-levels. He is flexible with additional ad hoc sessions on top of regular tutoring. He helped build his confidence and offered great advice on examination technique as well.”</p><footer>Parent of GCSE and A-Level student</footer></blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div>
-            <div class="section-heading"><h2>Enquire about tuition</h2><p>Get in touch to discuss individual tuition or register interest in a suitable small-group class.</p></div>
-            <p class="small-note">Please include the student’s year group, exam board if known, and the main areas in which support is needed.</p>
-            <div class="contact-summary">
-              <div class="contact-line">Format: Individual or small-group tuition</div>
-              <div class="contact-line">Location: Online via Google Meet</div>
-              <div class="contact-line">Subjects: GCSE, IGCSE and A-Level Maths</div>
-            </div>
+              <button class="btn btn-gold form-submit" type="submit" id="submit-btn">Send enquiry</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              <p class="form-note">We only use your details to reply to your enquiry. <a href="#privacy">Privacy notice</a>.</p>
+            </form>
           </div>
 
-          <form class="enquiry-form" action="https://formspree.io/f/meajowbl" method="POST">
-            <div class="form-group"><label for="parent-name">Parent name</label><input type="text" id="parent-name" name="Parent name" placeholder="Your name" required></div>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="your@email.com"
-                autocomplete="email"
-                required
-                oninvalid="this.setCustomValidity(this.validity.valueMissing ? 'Please enter your email address.' : 'Please enter a valid email address.')"
-                oninput="this.setCustomValidity('')"
-              >
-            </div>
-            <div class="form-group"><label for="phone">Phone number <span>optional</span></label><input type="tel" id="phone" name="Phone number" placeholder="07..."></div>
-            <div class="form-group"><label for="tuition-format">Preferred tuition format</label><select id="tuition-format" name="Preferred tuition format" required><option value="">Please select</option><option value="Individual tuition">Individual tuition</option><option value="Small-group tuition">Small-group tuition</option><option value="Open to either">Open to either</option></select></div>
-            <div class="form-group"><label for="student-level">Student level</label><select id="student-level" name="Student level" required><option value="">Please select</option><option value="GCSE Maths">GCSE Maths</option><option value="IGCSE Maths">IGCSE Maths</option><option value="A-Level Maths">A-Level Maths</option></select></div>
-            <div class="form-group"><label for="year-group">Student year group</label><input type="text" id="year-group" name="Student year group" placeholder="e.g. Year 10, Year 11 or Year 12" required></div>
-            <div class="form-group"><label for="exam-board">Exam board <span>optional</span></label><input type="text" id="exam-board" name="Exam board" placeholder="e.g. Edexcel, AQA, OCR or Cambridge"></div>
-            <div class="form-group"><label for="preferred-times">Preferred lesson times <span>optional</span></label><input type="text" id="preferred-times" name="Preferred lesson times" placeholder="e.g. weekday evenings or Sunday afternoons"></div>
-            <div class="form-group"><label for="message">What would you like help with?</label><textarea id="message" name="message" rows="5" placeholder="Please describe the student’s current confidence level, difficult topics or exam goals." required></textarea></div>
-            <input type="hidden" name="_subject" value="New Maths Tuition Enquiry">
-            <button type="submit" class="button button-primary form-button">Send Enquiry</button>
-            <p class="form-note">I will reply as soon as possible to discuss the most suitable option.</p>
-          </form>
+          <div class="success" id="form-success" hidden>
+            <div class="tick-big" aria-hidden="true">&#10003;</div>
+            <h2>Thank you, enquiry received</h2>
+            <p class="form-sub">We'll reply by email as soon as possible to talk through the best option.</p>
+            <a class="btn btn-ink btn-small" href="#mission">Read about our mission</a>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="alt" aria-labelledby="mission-title">
+      <div class="container">
+        <figure class="bridge-fig reveal">
+          <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 80 800 280%22 role=%22img%22 aria-label=%22A bridge connecting university students on the left with school and sixth-form students on the right%22%3E%0A  %3Crect x=%220%22 y=%22230%22 width=%22190%22 height=%22130%22 fill=%22%23E7DFCB%22/%3E%0A  %3Crect x=%22610%22 y=%22230%22 width=%22190%22 height=%22130%22 fill=%22%23E7DFCB%22/%3E%0A  %3Cpath d=%22M190 292 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0%22 fill=%22none%22 stroke=%22%231D2421%22 stroke-opacity=%22.18%22 stroke-width=%223%22/%3E%0A  %3Cpath d=%22M190 322 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0%22 fill=%22none%22 stroke=%22%231D2421%22 stroke-opacity=%22.1%22 stroke-width=%223%22/%3E%0A  %3Cg stroke=%22%23E8AE45%22 stroke-width=%222.4%22 stroke-linecap=%22round%22%3E%3Cline x1=%22210%22 y1=%22230%22 x2=%22210%22 y2=%22188.7%22/%3E%3Cline x1=%22244%22 y1=%22230%22 x2=%22244%22 y2=%22159.8%22/%3E%3Cline x1=%22278%22 y1=%22230%22 x2=%22278%22 y2=%22136.6%22/%3E%3Cline x1=%22312%22 y1=%22230%22 x2=%22312%22 y2=%22119.0%22/%3E%3Cline x1=%22346%22 y1=%22230%22 x2=%22346%22 y2=%22107.2%22/%3E%3Cline x1=%22380%22 y1=%22230%22 x2=%22380%22 y2=%22101.0%22/%3E%3Cline x1=%22414%22 y1=%22230%22 x2=%22414%22 y2=%22100.5%22/%3E%3Cline x1=%22448%22 y1=%22230%22 x2=%22448%22 y2=%22105.7%22/%3E%3Cline x1=%22482%22 y1=%22230%22 x2=%22482%22 y2=%22116.5%22/%3E%3Cline x1=%22516%22 y1=%22230%22 x2=%22516%22 y2=%22133.1%22/%3E%3Cline x1=%22550%22 y1=%22230%22 x2=%22550%22 y2=%22155.3%22/%3E%3Cline x1=%22584%22 y1=%22230%22 x2=%22584%22 y2=%22183.2%22/%3E%3C/g%3E%0A  %3Cpath d=%22M170 230 Q400 -30 630 230%22 fill=%22none%22 stroke=%22%23E8AE45%22 stroke-width=%227%22 stroke-linecap=%22round%22/%3E%0A  %3Crect x=%22150%22 y=%22226%22 width=%22500%22 height=%2210%22 rx=%225%22 fill=%22%231D2421%22/%3E%0A  %3Ccircle cx=%2252%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%231D2421%22 stroke-width=%223%22/%3E%3Cpath d=%22M33 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%231D2421%22/%3E%3Cpolygon points=%2228,152 52,142 76,152 52,162%22 fill=%22%23E8AE45%22/%3E%3Crect x=%2243%22 y=%22160%22 width=%2218%22 height=%227%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%2272%22 y1=%22153%22 x2=%2272%22 y2=%22166%22 stroke=%22%23E8AE45%22 stroke-width=%222.4%22/%3E%3Ccircle cx=%22108%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%231D2421%22 stroke-width=%223%22/%3E%3Cpath d=%22M89 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%231D2421%22/%3E%3Cpolygon points=%2284,152 108,142 132,152 108,162%22 fill=%22%23E8AE45%22/%3E%3Crect x=%2299%22 y=%22160%22 width=%2218%22 height=%227%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%22128%22 y1=%22153%22 x2=%22128%22 y2=%22166%22 stroke=%22%23E8AE45%22 stroke-width=%222.4%22/%3E%3Ccircle cx=%22158%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%231D2421%22 stroke-width=%223%22/%3E%3Cpath d=%22M139 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%231D2421%22/%3E%3Cpolygon points=%22134,152 158,142 182,152 158,162%22 fill=%22%23E8AE45%22/%3E%3Crect x=%22149%22 y=%22160%22 width=%2218%22 height=%227%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%22178%22 y1=%22153%22 x2=%22178%22 y2=%22166%22 stroke=%22%23E8AE45%22 stroke-width=%222.4%22/%3E%3Ccircle cx=%22642%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%235E6E66%22 stroke-width=%223%22/%3E%3Cpath d=%22M623 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%235E6E66%22/%3E%3Crect x=%22630%22 y=%22204%22 width=%2224%22 height=%2217%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%22642%22 y1=%22204%22 x2=%22642%22 y2=%22221%22 stroke=%22%235E6E66%22 stroke-width=%221.6%22/%3E%3Ccircle cx=%22692%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%235E6E66%22 stroke-width=%223%22/%3E%3Cpath d=%22M673 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%235E6E66%22/%3E%3Crect x=%22680%22 y=%22204%22 width=%2224%22 height=%2217%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%22692%22 y1=%22204%22 x2=%22692%22 y2=%22221%22 stroke=%22%235E6E66%22 stroke-width=%221.6%22/%3E%3Ccircle cx=%22748%22 cy=%22166%22 r=%2214%22 fill=%22%23F3EEE0%22 stroke=%22%235E6E66%22 stroke-width=%223%22/%3E%3Cpath d=%22M729 230 V196 a19 19 0 0 1 38 0 V230 Z%22 fill=%22%235E6E66%22/%3E%3Crect x=%22736%22 y=%22204%22 width=%2224%22 height=%2217%22 rx=%222%22 fill=%22%23E8AE45%22/%3E%3Cline x1=%22748%22 y1=%22204%22 x2=%22748%22 y2=%22221%22 stroke=%22%235E6E66%22 stroke-width=%221.6%22/%3E%0A  %3Ccircle cx=%22400%22 cy=%22231%22 r=%229%22 fill=%22%23E8AE45%22/%3E%0A%3C/svg%3E" alt="Illustration of a bridge. On one bank, university students in graduation caps. On the other, GCSE, IGCSE and A-Level students holding books." width="800" height="280">
+        </figure>
+        <div class="mission">
+          <div class="reveal">
+            <span class="eyebrow">Our mission</span>
+            <h2 id="mission-title" style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:18px">Insight from someone who was just there.</h2>
+            <p class="big">We connect university students with students who are sitting the same exams, so the insight of a recent school leaver can pass directly to the people who need it.</p>
+            <p>A textbook can explain a method. A student who sat the paper recently can also explain how the exam felt: which questions came up, which approaches earned the marks and what they would do differently. That is the experience Bridge Up puts in front of students who are preparing for the same exams now.</p>
+          </div>
+          <div class="traits">
+            <div class="trait reveal"><strong>Recent</strong><p>They sat these exams not long ago, so what they remember is still current.</p></div>
+            <div class="trait reveal"><strong>Relevant</strong><p>They know how today's papers and mark schemes work, and how questions are asked.</p></div>
+            <div class="trait reveal"><strong>Relatable</strong><p>Close in age and in experience, so explanations are clear and easy to follow.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVIDENCE: 3 points, Education Endowment Foundation -->
+    <section id="evidence" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Why tutoring matters</span>
+          <h2 id="evidence-title">What the research says.</h2>
+          <p>The Education Endowment Foundation (EEF), an independent UK education charity, reviews the evidence on what helps pupils learn. Three of its findings:</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="stat"><span>+5 months</span></div>
+            <h3>One-to-one tuition</h3>
+            <p>On average, pupils who receive one-to-one tuition make about five additional months' progress. It works best when it is linked to what pupils are learning in class.</p>
+            <a class="source" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/one-to-one-tuition" target="_blank" rel="noopener">Source: EEF, one-to-one tuition</a>
+          </article>
+          <article class="card reveal">
+            <div class="stat"><span>+4 months</span></div>
+            <h3>Small-group tuition</h3>
+            <p>Small groups add about four additional months' progress on average, and the smaller the group the better. The EEF finds effectiveness drops once groups pass six or seven pupils.</p>
+            <a class="source" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition" target="_blank" rel="noopener">Source: EEF, small-group tuition</a>
+          </article>
+          <article class="card reveal">
+            <div class="stat"><span>+6 months</span></div>
+            <h3>Learning from an older peer</h3>
+            <p>When an older learner takes the tutoring role, pupils gain about six additional months' progress on average, and the EEF finds a positive effect for tutors as well as tutees.</p>
+            <a class="source" href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/peer-tutoring" target="_blank" rel="noopener">Source: EEF, peer tutoring</a>
+          </article>
+        </div>
+        <p class="fine reveal">These are averages across many studies. Results vary between pupils and settings, and the figures describe progress in the research, not a guarantee for any one student.</p>
+      </div>
+    </section>
+
+    <!-- MATHS -->
+    <section id="maths" class="alt" aria-labelledby="maths-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Maths, for now</span>
+          <h2 id="maths-title">GCSE, IGCSE and A-Level Maths.</h2>
+          <p>Our focus is maths. Lessons are online through Google Meet, one to one or in small groups, with handwritten working throughout.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal"><h3>GCSE Maths</h3><p>Core topics, past-paper practice, revision structure and confidence before assessments.</p></article>
+          <article class="card reveal"><h3>IGCSE Maths</h3><p>Clear topic support and exam preparation for students following the IGCSE pathway.</p></article>
+          <article class="card reveal"><h3>A-Level Maths</h3><p>Understanding methods, improving accuracy and approaching exam questions more effectively.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="steps" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Getting started</span>
+          <h2 id="steps-title">Three simple steps.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal"><div class="step-num">1</div><h3>Send an enquiry</h3><p>Tell us the student's level, year group and what they need help with.</p></article>
+          <article class="card reveal"><div class="step-num">2</div><h3>We reply by email</h3><p>We talk through the best option, individual lessons or a small group, and find a time that suits.</p></article>
+          <article class="card reveal"><div class="step-num">3</div><h3>Lessons begin online</h3><p>Live on Google Meet, with no travel and flexible scheduling around school life.</p></article>
+        </div>
+        <p class="fine reveal">Small-group classes are in development. They bring together students working at a similar level so regular tuition costs less per family.</p>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="alt" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Parent feedback</span>
+          <h2 id="reviews-title">What parents say.</h2>
+        </div>
+        <div class="quotes">
+          <blockquote class="reveal"><p>&ldquo;George has been tutoring our son for his GCSE maths and we couldn&rsquo;t be happier. He&rsquo;s been incredibly flexible with scheduling, communicates clearly and consistently, and his teaching methods are genuinely effective. Highly recommend.&rdquo;</p><cite>Parent of GCSE student</cite></blockquote>
+          <blockquote class="reveal"><p>&ldquo;George is a great Maths tutor. He helped my son secure an 8 in Maths GCSE and is now tutoring him for his A-levels. He is flexible with additional ad hoc sessions on top of regular tutoring. He helped build his confidence and offered great advice on examination technique as well.&rdquo;</p><cite>Parent of GCSE and A-Level student</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="eyebrow">About</span>
+          <h2 id="about-title" style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin:6px 0 16px">Founded by George Adderley.</h2>
+          <p>Bridge Up was started by George, a Finance and Economics student at the University of Nottingham who tutors GCSE, IGCSE and A-Level maths online.</p>
+          <p>The idea is simple: students learn best from someone who recently sat the same exams, and who understands both the technical skill and the confidence needed to do well in them.</p>
+        </div>
+        <ul class="facts reveal">
+          <li><span>&#9733;</span> 5.0 rating on Google</li>
+          <li><span>&#10003;</span> Basic DBS checked</li>
+          <li><span>&#9679;</span> University of Nottingham, Finance &amp; Economics</li>
+          <li><span>&#9679;</span> GCSE, IGCSE and A-Level Maths, online</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container reveal">
+        <h2 id="cta-title">Ready to cross the bridge?</h2>
+        <p>Tell us what the student needs and we'll reply by email.</p>
+        <a class="btn btn-gold" href="#enquire">Enquire now</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© 2026 George Adderley Maths Tuition. All rights reserved.</p>
-      <p>GCSE, IGCSE and A-Level Mathematics Tuition</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <p>&copy; 2026 Bridge Up Tuition. All rights reserved.</p>
+        <p>GCSE, IGCSE and A-Level Maths Tuition</p>
+      </div>
+      <div class="privacy" id="privacy">
+        <h2>Privacy notice</h2>
+        <p>When you send an enquiry we collect the details you enter (such as your name, email address, phone number and the student's level and year group). We use them only to reply to your enquiry and to arrange tuition.</p>
+        <p>Enquiries are delivered to us by Formspree, a form service that processes the data on our behalf. We keep enquiry details only as long as needed to reply and arrange tuition. To ask for your details to be corrected or deleted, send a request using the form above.</p>
+      </div>
     </div>
   </footer>
+
+  <a class="btn btn-gold sticky-cta" id="sticky-cta" href="#enquire">Enquire now</a>
+  <script>
+/* Bridge Up Tuition – main script
+   1 Source tracking · 2 Form (Formspree, no page reload) · 3 Reveal on scroll · 4 Sticky button */
+(function () {
+  'use strict';
+
+  /* 1. Source tracking: https://…/tuition/?src=advertiser tags each enquiry */
+  var params = new URLSearchParams(window.location.search);
+  var src = (params.get('src') || 'website').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 40) || 'website';
+  var sourceField = document.getElementById('source');
+  if (sourceField) sourceField.value = src;
+
+  /* 2. Form: send to Formspree without leaving the page */
+  var form = document.getElementById('enquiry-form');
+  var wrap = document.getElementById('form-wrap');
+  var success = document.getElementById('form-success');
+  var statusEl = document.getElementById('form-status');
+  var button = document.getElementById('submit-btn');
+
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            form.reset();
+            sourceField.value = src;
+            wrap.hidden = true;
+            success.hidden = false;
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            return response.json().then(function (data) {
+              var message = data && data.errors ? data.errors.map(function (e) { return e.message; }).join(', ') : '';
+              throw new Error(message || 'Something went wrong. Please try again.');
+            });
+          }
+        })
+        .catch(function (error) {
+          statusEl.className = 'form-status error';
+          statusEl.textContent = error.message && error.message !== 'Failed to fetch'
+            ? error.message
+            : 'We could not send your request. Please check your connection and try again.';
+          button.disabled = false;
+          button.textContent = 'Send enquiry';
+        });
+    });
+  }
+
+  /* 3. Gentle reveal on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* 4. Sticky "Request a tutor" button, shown whenever the form is off-screen */
+  var sticky = document.getElementById('sticky-cta');
+  var formCard = document.getElementById('enquire');
+  if (sticky && formCard && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      sticky.classList.toggle('show', !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(formCard);
+  }
+})();
+
+</script>
 </body>
 </html>
