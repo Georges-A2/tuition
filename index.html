@@ -169,6 +169,14 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
   .hero-lead { font-size: 1rem; margin-bottom: 0; }
   .hero h1 { margin-bottom: 14px; }
 }
+
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.tile { background: var(--white); border: 1px solid var(--line); border-top: 5px solid var(--gold); border-radius: var(--radius); padding: 24px; }
+.tile strong { display: block; font-size: 1.5rem; letter-spacing: -.01em; margin-bottom: 10px; }
+.tile p { margin-bottom: 14px; font-size: 1rem; }
+.tile cite { font-style: normal; font-weight: 800; color: var(--muted); font-size: .88rem; }
+@media (max-width: 1000px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .tiles { grid-template-columns: 1fr; } .tile { padding: 20px; } }
 </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -386,9 +394,11 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
           <span class="eyebrow">Parent feedback</span>
           <h2 id="reviews-title">What parents say.</h2>
         </div>
-        <div class="quotes">
-          <blockquote class="reveal"><p>&ldquo;George has been tutoring our son for his GCSE maths and we couldn&rsquo;t be happier. He&rsquo;s been incredibly flexible with scheduling, communicates clearly and consistently, and his teaching methods are genuinely effective. Highly recommend.&rdquo;</p><cite>Parent of GCSE student</cite></blockquote>
-          <blockquote class="reveal"><p>&ldquo;George is a great Maths tutor. He helped my son secure an 8 in Maths GCSE and is now tutoring him for his A-levels. He is flexible with additional ad hoc sessions on top of regular tutoring. He helped build his confidence and offered great advice on examination technique as well.&rdquo;</p><cite>Parent of GCSE and A-Level student</cite></blockquote>
+        <div class="tiles">
+          <div class="tile reveal"><strong>Flexible</strong><p>&ldquo;Incredibly flexible with scheduling&rdquo;</p><cite>Parent of GCSE student</cite></div>
+          <div class="tile reveal"><strong>Clear</strong><p>&ldquo;Communicates clearly and consistently&rdquo;</p><cite>Parent of GCSE student</cite></div>
+          <div class="tile reveal"><strong>Effective</strong><p>&ldquo;Teaching methods are genuinely effective&rdquo;</p><cite>Parent of GCSE student</cite></div>
+          <div class="tile reveal"><strong>Confident</strong><p>&ldquo;Built his confidence and offered great advice on examination technique&rdquo;</p><cite>Parent of GCSE and A-Level student</cite></div>
         </div>
       </div>
     </section>
