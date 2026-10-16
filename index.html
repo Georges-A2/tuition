@@ -255,22 +255,11 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
 .intro-card .btn { flex-shrink: 0; }
 @media (max-width: 900px) { .intro-card { flex-direction: column; align-items: flex-start; padding: 22px; gap: 18px; } }
 
-/* 12. Desktop: navigation as a fixed left sidebar (mobile keeps the top bar + drop-down) */
-@media (min-width: 1001px) {
-  :root { --side-w: 236px; }
-  html { scroll-padding-top: 16px; }
-  body { padding-left: var(--side-w); }
-  .site-header { position: fixed; top: 0; left: 0; bottom: 0; width: var(--side-w); z-index: 50; border-bottom: 0; border-right: 1px solid var(--line); background: var(--sand); backdrop-filter: none; overflow-y: auto; }
-  .site-header .nav { height: 100%; width: auto; margin: 0; padding: 26px 22px 24px; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 26px; }
-  .brand { gap: 10px; }
-  .brand img { width: 42px; }
-  .brand-name { font-size: 1rem; }
-  .nav-links { display: flex; flex-direction: column; gap: 4px; font-size: 1rem; }
-  .nav-links a { display: block; padding: 10px 12px; border-bottom: 0; border-left: 3px solid transparent; border-radius: 0 10px 10px 0; }
-  .nav-links a:hover, .nav-links a:focus-visible { background: rgba(232, 174, 69, .22); border-left-color: var(--gold); }
-  .nav-cta { margin-top: auto; margin-left: 0; text-align: center; }
-  .form-card { scroll-margin-top: 24px; }
-  .sticky-cta { left: calc(50% + var(--side-w) / 2); }
+/* 13. Narrow screens: menu button sits in the top-left corner */
+@media (max-width: 1000px) {
+  .menu-btn { order: -1; }
+  .nav { justify-content: flex-start; }
+  .nav-cta { margin-left: auto; }
 }
 </style>
   <script>document.documentElement.classList.add('js');</script>
