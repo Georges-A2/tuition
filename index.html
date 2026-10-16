@@ -57,11 +57,11 @@ p { margin: 0; }
 .nav { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
 .brand img { width: 46px; height: auto; }
-.brand-name { font-weight: 900; letter-spacing: .04em; font-size: 1.08rem; text-transform: uppercase; }
+.brand-name { white-space: nowrap; font-weight: 900; letter-spacing: .04em; font-size: 1.08rem; text-transform: uppercase; }
 .brand-name span { color: var(--gold-deep); }
-.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; color: var(--muted); font-size: .95rem; }
-.nav-links a { text-decoration: none; transition: color .2s; }
-.nav-links a:hover { color: var(--ink); }
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; color: var(--ink); font-size: .98rem; font-weight: 600; letter-spacing: .01em; }
+.nav-links a { white-space: nowrap; text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); border-bottom-color: var(--gold); outline: none; }
 
 /* 4. Hero */
 .hero { position: relative; overflow: hidden; padding: 72px 0 84px; }
@@ -160,7 +160,6 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
   .hero { padding: 36px 0 52px; }
   .hero-grid, .mission, .about-grid { grid-template-columns: 1fr; gap: 30px; }
   .grid-3, .quotes { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
   section { padding: 58px 0; }
   .form-card { padding: 22px; }
   .form-grid { grid-template-columns: 1fr; }
@@ -233,6 +232,28 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
 .material-price small { color: var(--muted); }
 .terms { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); max-width: 760px; }
 @media (max-width: 900px) { .price-grid, .board-grid, .material-card { grid-template-columns: 1fr; } .material-card { padding: 24px; gap: 22px; } .price-sec { padding: 36px 0 48px; } .tab { padding: 10px 16px; } }
+@media (max-width: 1100px) { .nav-links { gap: 18px; font-size: .92rem; } }
+@media (max-width: 1000px) { .nav-links { display: none; } }
+
+/* 11. Mobile menu (drop-down shown when the header links are hidden) */
+.menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--white); border-radius: 12px; cursor: pointer; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+.menu-btn span { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px rgba(29, 36, 33, .12); max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
+.mobile-menu ul { list-style: none; margin: 0 auto; padding: 8px 0 14px; width: min(92%, var(--max)); }
+.mobile-menu a { display: block; padding: 15px 4px; text-decoration: none; font-weight: 700; font-size: 1.05rem; border-bottom: 1px solid var(--line); }
+.mobile-menu li:last-child a { border-bottom: 0; }
+.mobile-menu a:active, .mobile-menu a:focus-visible { background: var(--sand); outline: none; }
+@media (max-width: 1000px) { .menu-btn { display: inline-flex; } .nav { gap: 10px; } .nav-cta { margin-left: auto; } }
+@media (min-width: 1001px) { .mobile-menu { display: none !important; } }
+
+.intro-card { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 28px; background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: var(--radius); padding: 26px 30px; }
+.intro-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.intro-card p { color: var(--muted); max-width: 640px; }
+.intro-card .btn { flex-shrink: 0; }
+@media (max-width: 900px) { .intro-card { flex-direction: column; align-items: flex-start; padding: 22px; gap: 18px; } }
 </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -254,8 +275,21 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#about">About</a></li>
       </ul>
-      <a class="btn btn-gold btn-small" href="#enquire">Enquire</a>
+      <a class="btn btn-gold btn-small nav-cta" href="#enquire">Enquire</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Sections" hidden>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#mission">Our mission</a></li>
+        <li><a href="#evidence">Why tutoring</a></li>
+        <li><a href="#maths">Maths</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#resources">Free resources</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="top">
@@ -541,6 +575,13 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
         <div class="tabs" role="group" aria-label="Choose the student's level" id="price-tabs"></div>
         <div class="price-grid" id="price-cards"></div>
         <p class="price-sub" id="price-short"></p>
+        <div class="intro-card">
+          <div>
+            <h3>Not sure yet? Start with a short intro.</h3>
+            <p>Before any payment, you can arrange an optional intro call of about <span data-price="introMinutes">10</span> minutes. We talk through what the student needs and how lessons would work, and you can decide whether we are the right fit. There is no obligation.</p>
+          </div>
+          <a class="btn btn-ink" href="#enquire" data-note="I would like a short intro call before deciding." data-level="">Ask for an intro</a>
+        </div>
       </div>
     </section>
 
@@ -600,7 +641,7 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
           <li>Prices are for one-to-one, one-hour lessons online through Google Meet. Small-group lessons are in development, so ask about them on the enquiry form.</li>
           <li id="terms-validity"></li>
           <li>Lessons can be rearranged with at least 24 hours' notice.</li>
-          <li>Payment is by bank transfer once we have agreed lessons. We send the details by email.</li>
+          <li>Payment is by bank transfer once we have agreed lessons, after any intro call. We send the details by email.</li>
         </ul>
       </div>
     </section>
@@ -717,8 +758,9 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
       ],
       halfHourShare: 0.6,          // a 30-minute lesson costs this share of the hourly price (rounded to 50p)
       materialPer30Marks: 2.5,     // price for 30 marks of targeted practice material
-      validityMonths: { bundle5: 3, bundle10: 4 },   // how long each bundle lasts
-      catchUpMinutes: 15           // length of the free parent catch-up
+      lessonEveryWeeks: 1.5,       // bundle lessons are booked regularly, at least one this often
+      catchUpMinutes: 15,          // length of the free parent catch-up
+      introMinutes: 10             // length of the optional intro call before any payment
     };
   </script>
   <script>/* Bridge Up Tuition – main script
@@ -843,14 +885,16 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
     var tabsEl = document.getElementById('price-tabs');
     var cardsEl = document.getElementById('price-cards');
     var shortEl = document.getElementById('price-short');
-    var months = P.validityMonths;
+    var gap = P.lessonEveryWeeks === 1.5 ? '1\u00BD' : String(P.lessonEveryWeeks);
+    var cadence = 'A lesson at least every ' + gap + ' weeks, for regular contact';
 
     var lowest = Math.min.apply(null, P.levels.map(function (l) { return l.hour; }));
     Array.prototype.forEach.call(document.querySelectorAll('.from-price'), function (el) { el.textContent = money(lowest); });
     Array.prototype.forEach.call(document.querySelectorAll('[data-price="catchUpMinutes"]'), function (el) { el.textContent = P.catchUpMinutes; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-price="introMinutes"]'), function (el) { el.textContent = P.introMinutes; });
     document.getElementById('material-price').textContent = money(P.materialPer30Marks);
     document.getElementById('material-example').textContent = 'e.g. a 45-mark worksheet is ' + money(P.materialPer30Marks * 1.5);
-    document.getElementById('terms-validity').textContent = 'A 5-lesson bundle is used within ' + months.bundle5 + ' months and a 10-lesson bundle within ' + months.bundle10 + ' months of the first lesson. The bundle price is held until the lessons are used.';
+    document.getElementById('terms-validity').textContent = 'Bundle lessons are booked regularly, at least one every ' + gap + ' weeks, so progress stays steady and we stay in regular contact. The bundle price is held until the lessons are used.';
 
     function card(level, title, total, count, opts) {
       var per = total / count;
@@ -874,8 +918,8 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
       var catchUp = 'Free ' + P.catchUpMinutes + '-minute parent catch-up every fortnight';
       cardsEl.innerHTML =
         card(level, 'Single lesson', level.hour, 1, { features: ['One hour, one to one, online', 'Pay for each lesson as you go'] }) +
-        card(level, '5 lessons', level.bundle5, 5, { features: ['Five one-hour lessons', catchUp, 'Use within ' + months.bundle5 + ' months', 'Price held until used'] }) +
-        card(level, '10 lessons', level.bundle10, 10, { feature: true, badge: 'Best value', features: ['Ten one-hour lessons', catchUp, 'Use within ' + months.bundle10 + ' months', 'Price held until used'] });
+        card(level, '5 lessons', level.bundle5, 5, { features: ['Five one-hour lessons', catchUp, cadence, 'Price held until used'] }) +
+        card(level, '10 lessons', level.bundle10, 10, { feature: true, badge: 'Best value', features: ['Ten one-hour lessons', catchUp, cadence, 'Price held until used'] });
       var half = Math.round(level.hour * P.halfHourShare * 2) / 2;
       shortEl.textContent = 'Need a shorter session? A 30-minute lesson is ' + money(half) + ' and is not included in bundles. Most students get far more from a full hour, with time to settle in, work through questions and review.';
     }
@@ -888,14 +932,33 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
     render(0);
 
     /* Enquire buttons fill in the enquiry form for the visitor */
-    cardsEl.addEventListener('click', function (e) {
+    document.getElementById('pricing-view').addEventListener('click', function (e) {
       var a = e.target.closest('a[data-note]');
       if (!a) return;
       var msg = document.getElementById('message');
       var sel = document.getElementById('student-level');
+      var lvl = a.getAttribute('data-level');
       if (msg) msg.value = a.getAttribute('data-note');
-      if (sel) { Array.prototype.forEach.call(sel.options, function (o) { if (o.text === a.getAttribute('data-level')) sel.value = o.value || o.text; }); }
+      if (sel && lvl) { Array.prototype.forEach.call(sel.options, function (o) { if (o.text === lvl) sel.value = o.value || o.text; }); }
     });
+  }
+
+  /* 7. Mobile menu drop-down */
+  var menuBtn = document.getElementById('menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    if (!menuBtn || !menu) return;
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1000) setMenu(false); });
+    window.addEventListener('hashchange', function () { setMenu(false); });
   }
 
   route();
