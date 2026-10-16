@@ -204,6 +204,35 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
 .btn-line:hover { background: var(--ink); color: var(--cream); }
 @media (max-width: 900px) { .teaser, .res-grid { grid-template-columns: 1fr; } .res-hero { padding: 36px 0 28px; } .res-list { padding: 40px 0 48px; } }
 .nw { white-space: nowrap; }
+
+/* 10. Pricing */
+.price-sec { padding: 48px 0 64px; }
+.tabs { display: inline-flex; gap: 6px; background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 5px; margin-bottom: 26px; }
+.tab { border: 0; background: transparent; font: inherit; font-weight: 800; color: var(--muted); padding: 10px 22px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
+.tab[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+.price-card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; display: flex; flex-direction: column; gap: 10px; }
+.price-card.feature { border: 2px solid var(--gold); box-shadow: var(--shadow); }
+.price-badge { position: absolute; top: -13px; left: 24px; background: var(--gold); color: var(--ink); font-weight: 800; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; }
+.price-card h3 { font-size: 1.2rem; }
+.price-amount { font-size: 2.8rem; font-weight: 900; letter-spacing: -.04em; line-height: 1; }
+.price-per { color: var(--muted); font-weight: 700; font-size: .95rem; }
+.price-save { display: inline-block; width: fit-content; background: rgba(232, 174, 69, .28); border-radius: 8px; padding: 3px 10px; font-weight: 800; font-size: .86rem; }
+.price-card ul { list-style: none; margin: 6px 0 12px; padding: 0; display: grid; gap: 8px; color: var(--muted); font-size: .98rem; }
+.price-card li::before { content: "\2713"; color: var(--gold-deep); font-weight: 900; margin-right: 9px; }
+.price-card .btn { margin-top: auto; }
+.price-sub { color: var(--muted); font-size: .95rem; margin-top: 22px; max-width: 720px; }
+.board-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.board-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+.board-card h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.board-card .chips { margin: 0; }
+.material-card { display: grid; grid-template-columns: 1.4fr .6fr; gap: 36px; align-items: center; background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: var(--radius); padding: 34px; }
+.material-price { text-align: center; background: var(--cream); border-radius: var(--radius); padding: 26px 18px; display: grid; gap: 4px; }
+.material-price strong { font-size: 2.6rem; font-weight: 900; letter-spacing: -.04em; line-height: 1; }
+.material-price span { font-weight: 800; color: var(--muted); }
+.material-price small { color: var(--muted); }
+.terms { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); max-width: 760px; }
+@media (max-width: 900px) { .price-grid, .board-grid, .material-card { grid-template-columns: 1fr; } .material-card { padding: 24px; gap: 22px; } .price-sec { padding: 36px 0 48px; } .tab { padding: 10px 16px; } }
 </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -220,6 +249,7 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
         <li><a href="#mission">Our mission</a></li>
         <li><a href="#evidence">Why tutoring</a></li>
         <li><a href="#maths">Maths</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#resources">Free resources</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#about">About</a></li>
@@ -244,7 +274,7 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
             <li>5.0 on Google</li>
             <li>Online via Google Meet</li>
           </ul>
-          <p class="hero-secondary">Prefer to read first? <a href="#mission">Read about our mission</a> or <a href="#resources">try our free worksheets</a>.</p>
+          <p class="hero-secondary">Prefer to read first? <a href="#mission">Read about our mission</a> or <a href="#pricing">see our pricing</a> or <a href="#resources">try our free worksheets</a>.</p>
         </div>
 
         <div class="form-card" id="enquire">
@@ -268,6 +298,7 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
                     <option value="">Please select</option>
                     <option>GCSE Maths</option>
                     <option>IGCSE Maths</option>
+                    <option>AS-Level Maths</option>
                     <option>A-Level Maths</option>
                   </select>
                 </div>
@@ -450,8 +481,25 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
       </div>
     </section>
 
+    <!-- PRICING TEASER -->
+    <section id="pricing-teaser" class="alt" aria-labelledby="pricing-teaser-title">
+      <div class="container teaser">
+        <div class="reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2 id="pricing-teaser-title" style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:12px">Clear prices, with savings on bundles.</h2>
+          <p class="teaser-text">From <strong class="from-price">&pound;25</strong> an hour for GCSE and IGCSE, for every main exam board. Pay as you go, or pay in advance for 5 or 10 lessons and save. Bundles include a free parent catch-up every fortnight.</p>
+          <a class="btn btn-ink" href="#pricing">See pricing</a>
+        </div>
+        <ul class="teaser-list reveal">
+          <li><strong>Single lessons</strong> Pay for each one-hour lesson</li>
+          <li><strong>5 and 10 lesson bundles</strong> Pay in advance and save</li>
+          <li><strong>Free parent catch-ups</strong> 15 minutes every fortnight with a bundle</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- FREE RESOURCES TEASER -->
-    <section id="free-resources" class="alt" aria-labelledby="free-resources-title">
+    <section id="free-resources" aria-labelledby="free-resources-title">
       <div class="container teaser">
         <div class="reveal">
           <span class="eyebrow">Free resources</span>
@@ -471,6 +519,96 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
       <div class="container reveal">
         <h2 id="cta-title">Ready to cross the bridge?</h2>
         <p>Tell us what the student needs and we'll reply by email.</p>
+        <a class="btn btn-gold" href="#enquire">Enquire now</a>
+      </div>
+    </section>
+   </div>
+
+   <!-- PRICING PAGE (opens at #pricing). Prices are set in the "EDIT PRICES HERE" block at the bottom of this file. -->
+   <div id="pricing-view" hidden>
+    <section class="res-hero" aria-labelledby="pricing-title">
+      <div class="container">
+        <a class="back-link" href="#top">&larr; Back to home</a>
+        <span class="eyebrow">Pricing</span>
+        <h1 id="pricing-title">Clear prices. Save by paying in advance.</h1>
+        <p class="res-lead">Online maths lessons for GCSE, IGCSE, AS and A-Level, for every main exam board. Pay as you go, or save with a bundle of 5 or 10 lessons.</p>
+      </div>
+    </section>
+
+    <section class="alt price-sec" aria-labelledby="price-cards-title">
+      <div class="container">
+        <h2 id="price-cards-title" class="sr-only">Lesson prices</h2>
+        <div class="tabs" role="group" aria-label="Choose the student's level" id="price-tabs"></div>
+        <div class="price-grid" id="price-cards"></div>
+        <p class="price-sub" id="price-short"></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="boards-title">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Exam boards</span>
+          <h2 id="boards-title">Every main exam board.</h2>
+          <p>Lessons follow your own exam board's specification and past papers, so students practise exactly what they will sit. Tell us your board on the enquiry form.</p>
+        </div>
+        <div class="board-grid">
+          <div class="board-card"><h3>GCSE</h3><ul class="chips"><li>AQA</li><li>Edexcel</li><li>OCR</li><li>WJEC Eduqas</li></ul></div>
+          <div class="board-card"><h3>IGCSE</h3><ul class="chips"><li>Cambridge (CAIE)</li><li>Edexcel International GCSE</li><li>Oxford AQA International</li></ul></div>
+          <div class="board-card"><h3>AS and A-Level</h3><ul class="chips"><li>AQA</li><li>Edexcel</li><li>OCR (including MEI)</li><li>WJEC Eduqas</li></ul></div>
+        </div>
+        <p class="fine">Exam board names are used only to describe what we teach. Bridge Up Tuition is not affiliated with or endorsed by any exam board.</p>
+      </div>
+    </section>
+
+    <section class="alt" aria-labelledby="catchup-title">
+      <div class="container teaser">
+        <div>
+          <span class="eyebrow">Included with every bundle</span>
+          <h2 id="catchup-title" style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:12px">A free parent catch-up, every fortnight.</h2>
+          <p class="teaser-text">A short <span data-price="catchUpMinutes">15</span>-minute conversation with a parent, by phone, Google Meet or email, arranged straight after a lesson. It keeps you up to date without having to ask, and it is a conversation about progress, not extra tutoring.</p>
+        </div>
+        <ul class="teaser-list">
+          <li><strong>How lessons are going</strong> What the student has covered and how they are finding it</li>
+          <li><strong>What comes next</strong> The topics we are working on, and why</li>
+          <li><strong>Revision priorities</strong> Where time is best spent before exams</li>
+          <li><strong>Questions or worries</strong> A chance to raise anything at all</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="material-title">
+      <div class="container">
+        <div class="material-card">
+          <div>
+            <span class="eyebrow">Extra practice</span>
+            <h2 id="material-title" style="font-size:clamp(1.6rem,3.2vw,2.3rem);margin-bottom:12px">Targeted practice, written for the student.</h2>
+            <p class="teaser-text">After a lesson shows what a student finds hard, we can write new, exam-style questions aimed at exactly that, with answers. It is original material for their level and exam board, not a copy of a past paper.</p>
+          </div>
+          <div class="material-price">
+            <strong id="material-price">&pound;2.50</strong>
+            <span>per 30 marks of material</span>
+            <small id="material-example"></small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" aria-labelledby="terms-title">
+      <div class="container">
+        <h2 id="terms-title" style="font-size:1.4rem;margin-bottom:14px">The small print</h2>
+        <ul class="terms">
+          <li>Prices are for one-to-one, one-hour lessons online through Google Meet. Small-group lessons are in development, so ask about them on the enquiry form.</li>
+          <li id="terms-validity"></li>
+          <li>Lessons can be rearranged with at least 24 hours' notice.</li>
+          <li>Payment is by bank transfer once we have agreed lessons. We send the details by email.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="pricing-cta-title">
+      <div class="container">
+        <h2 id="pricing-cta-title">Not sure which option suits?</h2>
+        <p>Tell us the level and what the student needs, and we'll reply by email with a recommendation.</p>
         <a class="btn btn-gold" href="#enquire">Enquire now</a>
       </div>
     </section>
@@ -568,6 +706,21 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
   </footer>
 
   <a class="btn btn-gold sticky-cta" id="sticky-cta" href="#enquire">Enquire now</a>
+  <!-- ============ EDIT PRICES HERE ============
+       Change a number, save, and the pricing page updates by itself: per-lesson price, savings,
+       30-minute price and material examples are all worked out from these figures. -->
+  <script>
+    window.BRIDGE_UP_PRICES = {
+      levels: [
+        { id: 'gcse',   tab: 'GCSE & IGCSE',  hour: 25, bundle5: 120, bundle10: 225, levelOption: 'GCSE Maths' },
+        { id: 'alevel', tab: 'AS & A-Level',  hour: 30, bundle5: 145, bundle10: 270, levelOption: 'A-Level Maths' }
+      ],
+      halfHourShare: 0.6,          // a 30-minute lesson costs this share of the hourly price (rounded to 50p)
+      materialPer30Marks: 2.5,     // price for 30 marks of targeted practice material
+      validityMonths: { bundle5: 3, bundle10: 4 },   // how long each bundle lasts
+      catchUpMinutes: 15           // length of the free parent catch-up
+    };
+  </script>
   <script>/* Bridge Up Tuition – main script
    1 Source tracking · 2 Form (Formspree, no page reload) · 3 Reveal on scroll · 4 Sticky button · 5 Free resources page */
 (function () {
@@ -655,20 +808,23 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
     }, { threshold: 0 }).observe(formCard);
   }
 
-  /* 5. Free resources page: #resources shows the downloads page, any other link shows the home page */
+  /* 5. Pages inside this file: #resources and #pricing open as pages, any other link shows the home page */
   var homeView = document.getElementById('home-view');
-  var resView = document.getElementById('resources-view');
+  var pages = {
+    '#resources': { el: document.getElementById('resources-view'), title: 'Free IGCSE Maths Worksheets | Bridge Up Tuition' },
+    '#pricing':   { el: document.getElementById('pricing-view'),   title: 'Pricing | Bridge Up Tuition' }
+  };
   var homeTitle = document.title;
-  var onResources = false;
+  var currentPage = null;
   function route() {
-    if (!homeView || !resView) return;
-    var wantResources = window.location.hash === '#resources';
-    var changed = wantResources !== onResources;
-    onResources = wantResources;
-    homeView.hidden = wantResources;
-    resView.hidden = !wantResources;
-    document.title = wantResources ? 'Free IGCSE Maths Worksheets | Bridge Up Tuition' : homeTitle;
-    if (wantResources) {
+    if (!homeView) return;
+    var page = pages[window.location.hash] || null;
+    var changed = page !== currentPage;
+    currentPage = page;
+    homeView.hidden = !!page;
+    Object.keys(pages).forEach(function (key) { if (pages[key].el) pages[key].el.hidden = pages[key] !== page; });
+    document.title = page ? page.title : homeTitle;
+    if (page) {
       window.scrollTo({ top: 0, behavior: 'instant' });
     } else if (changed) {
       var id = window.location.hash.slice(1);
@@ -678,6 +834,70 @@ blockquote cite { font-style: normal; font-weight: 800; color: var(--muted); fon
     }
   }
   window.addEventListener('hashchange', route);
+
+  /* 6. Pricing page: built from window.BRIDGE_UP_PRICES (edit the numbers at the bottom of index.html) */
+  var P = window.BRIDGE_UP_PRICES;
+  function money(n) { return '\u00A3' + (Math.abs(n - Math.round(n)) < 0.001 ? String(Math.round(n)) : n.toFixed(2)); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  if (P && document.getElementById('price-cards')) {
+    var tabsEl = document.getElementById('price-tabs');
+    var cardsEl = document.getElementById('price-cards');
+    var shortEl = document.getElementById('price-short');
+    var months = P.validityMonths;
+
+    var lowest = Math.min.apply(null, P.levels.map(function (l) { return l.hour; }));
+    Array.prototype.forEach.call(document.querySelectorAll('.from-price'), function (el) { el.textContent = money(lowest); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-price="catchUpMinutes"]'), function (el) { el.textContent = P.catchUpMinutes; });
+    document.getElementById('material-price').textContent = money(P.materialPer30Marks);
+    document.getElementById('material-example').textContent = 'e.g. a 45-mark worksheet is ' + money(P.materialPer30Marks * 1.5);
+    document.getElementById('terms-validity').textContent = 'A 5-lesson bundle is used within ' + months.bundle5 + ' months and a 10-lesson bundle within ' + months.bundle10 + ' months of the first lesson. The bundle price is held until the lessons are used.';
+
+    function card(level, title, total, count, opts) {
+      var per = total / count;
+      var save = level.hour * count - total;
+      var feats = opts.features.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('');
+      var note = 'I am interested in: ' + title + ' (' + level.tab + ', ' + money(total) + ').';
+      return '<article class="price-card' + (opts.feature ? ' feature' : '') + '">' +
+        (opts.badge ? '<span class="price-badge">' + esc(opts.badge) + '</span>' : '') +
+        '<h3>' + esc(title) + '</h3>' +
+        '<div class="price-amount">' + money(total) + '</div>' +
+        '<div class="price-per">' + (count > 1 ? money(per) + ' per lesson' : 'per one-hour lesson') + '</div>' +
+        (save > 0 ? '<span class="price-save">Save ' + money(save) + '</span>' : '') +
+        '<ul>' + feats + '</ul>' +
+        '<a class="btn ' + (opts.feature ? 'btn-gold' : 'btn-ink') + '" href="#enquire" data-note="' + esc(note) + '" data-level="' + esc(level.levelOption) + '">Enquire about this</a>' +
+        '</article>';
+    }
+
+    function render(index) {
+      var level = P.levels[index];
+      Array.prototype.forEach.call(tabsEl.children, function (b, i) { b.setAttribute('aria-pressed', i === index ? 'true' : 'false'); });
+      var catchUp = 'Free ' + P.catchUpMinutes + '-minute parent catch-up every fortnight';
+      cardsEl.innerHTML =
+        card(level, 'Single lesson', level.hour, 1, { features: ['One hour, one to one, online', 'Pay for each lesson as you go'] }) +
+        card(level, '5 lessons', level.bundle5, 5, { features: ['Five one-hour lessons', catchUp, 'Use within ' + months.bundle5 + ' months', 'Price held until used'] }) +
+        card(level, '10 lessons', level.bundle10, 10, { feature: true, badge: 'Best value', features: ['Ten one-hour lessons', catchUp, 'Use within ' + months.bundle10 + ' months', 'Price held until used'] });
+      var half = Math.round(level.hour * P.halfHourShare * 2) / 2;
+      shortEl.textContent = 'Need a shorter session? A 30-minute lesson is ' + money(half) + ' and is not included in bundles. Most students get far more from a full hour, with time to settle in, work through questions and review.';
+    }
+
+    tabsEl.innerHTML = P.levels.map(function (l, i) { return '<button type="button" class="tab" data-i="' + i + '" aria-pressed="false">' + esc(l.tab) + '</button>'; }).join('');
+    tabsEl.addEventListener('click', function (e) {
+      var b = e.target.closest('.tab');
+      if (b) render(Number(b.getAttribute('data-i')));
+    });
+    render(0);
+
+    /* Enquire buttons fill in the enquiry form for the visitor */
+    cardsEl.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-note]');
+      if (!a) return;
+      var msg = document.getElementById('message');
+      var sel = document.getElementById('student-level');
+      if (msg) msg.value = a.getAttribute('data-note');
+      if (sel) { Array.prototype.forEach.call(sel.options, function (o) { if (o.text === a.getAttribute('data-level')) sel.value = o.value || o.text; }); }
+    });
+  }
+
   route();
 })();
 </script>
